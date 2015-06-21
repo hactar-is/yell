@@ -32,6 +32,12 @@ class Notification(object):
     A name for this notification.
     """
     
+    data = {}
+    """
+    Allow arbitrary data to be stored in the base notification.
+    """
+
+
     def notify(self, *args, **kwargs):
         """
         A method that delivers a notification.
