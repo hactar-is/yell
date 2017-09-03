@@ -1,5 +1,9 @@
 from __future__ import absolute_import
-from celery.task import Task
+from __future__ import print_function
+from __future__ import division
+from __future__ import unicode_literals
+
+from .celery.task import Task
 from yell import Notification, notify, registry
 
 class CeleryNotificationTask(Task):
@@ -57,7 +61,7 @@ class CeleryNotification(Notification):
         By default all backends with the same :attr:`name` except for subclasses
         of :class:`CeleryNotifications` will be used.
         """
-        return filter(lambda cls: not issubclass(cls, self.__class__), registry.notifications[self.name])
+        return [cls for cls in registry.notifications[self.name] if not issubclass(cls, self.__class__)]
 
     
     def notify(self, *args, **kwargs):

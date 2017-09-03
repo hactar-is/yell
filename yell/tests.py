@@ -1,3 +1,7 @@
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from yell import notify, Notification
 from yell.decorators import notification
 
@@ -36,8 +40,8 @@ class AssertMixin(object):
             self.assertTrue('Arg1' == result[1][0], """ Expected value 'Arg1' does not match received value '%s' """ % result[1][0])
             self.assertTrue('Arg2' == result[1][1], """ Expected value 'Arg2' does not match received value '%s' """ % result[1][1])
             
-            self.assertTrue('Kwarg1' in result[2].values())
-            self.assertTrue('Kwarg2' in result[2].values())
+            self.assertTrue('Kwarg1' in list(result[2].values()))
+            self.assertTrue('Kwarg2' in list(result[2].values()))
             
 
 class TestDecoratorNotification(AssertMixin, unittest.TestCase):

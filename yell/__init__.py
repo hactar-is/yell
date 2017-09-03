@@ -1,6 +1,7 @@
 __version__ = "0.3.2"
 
-import registry
+from .registry import registry
+
 
 class MetaNotification(type):
     """ 

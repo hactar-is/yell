@@ -1,8 +1,12 @@
 from __future__ import absolute_import
+from __future__ import print_function
+from __future__ import division
+from __future__ import unicode_literals
+
 import os
-from django.conf import settings
-from django import template
-from django.core.mail import send_mail, EmailMultiAlternatives
+from .django.conf import settings
+from .django import template
+from .django.core.mail import send_mail, EmailMultiAlternatives
 from yell import Notification
 
 
@@ -76,7 +80,7 @@ class MultipartEmailBackend(EmailBackend):
             self.get_to(*args, **kwargs)
         )
         
-        for content_type, body in self.get_body(*args, **kwargs).iteritems():
+        for content_type, body in self.get_body(*args, **kwargs).items():
             if content_type == self.default_content_type: continue
             message.attach_alternative(body, content_type)
         
