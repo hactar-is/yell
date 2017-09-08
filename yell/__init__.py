@@ -18,10 +18,7 @@ from builtins import *
 from builtins import object
 from future.utils import with_metaclass
 
-__version__ = "0.3.2"
-
-
-import hues
+__version__ = "0.4.0"
 
 
 class Reg(object):
@@ -45,8 +42,6 @@ class MetaNotification(type):
     def __init__(self, name, bases, attrs):
         super(MetaNotification, self).__init__(name, bases, attrs)
         reg = registry.notifications
-        hues.info("META NOTIFICATION")
-        hues.info(self)
         if self.name is not None:
             reg[self.name] = reg.get(self.name, []) + [self]
 
