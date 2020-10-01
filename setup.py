@@ -5,7 +5,7 @@ import yell
 
 METADATA = dict(
     name='yell',
-    version="0.5.0",
+    version="0.6.0",
     author='Alen Mujezinovic',
     author_email='flashingpumpkin@gmail.com',
     description='User notification library with pluggable backends. Compatible with popular frameworks such as Django, Flask, Celery.',
